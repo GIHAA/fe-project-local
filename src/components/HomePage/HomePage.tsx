@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
   const [description, setDescription] = useState<string>('')
   const [editIndex, setEditIndex] = useState<number | null>(null)
   const [loggedInUser, setLoggedInUser] = useState<string | null>('')
-  const [error, setError] = useState<string>('') // Error state
+  const [error, setError] = useState<string>('') 
 
   useEffect(() => {
     const storedTodos: Todo[] = JSON.parse(localStorage.getItem('todos') || '[]')
@@ -72,7 +72,7 @@ const HomePage: React.FC = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('loggedInUser')
-    navigate('/login')
+    navigate('/')
   }
 
   return (
