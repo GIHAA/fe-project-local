@@ -15,6 +15,7 @@ const HomePage: React.FC = () => {
   const [description, setDescription] = useState<string>('')
   const [editIndex, setEditIndex] = useState<number | null>(null)
   const [loggedInUser, setLoggedInUser] = useState<string | null>('')
+  const [error, setError] = useState<string>('') // Error state
 
   useEffect(() => {
     const storedTodos: Todo[] = JSON.parse(localStorage.getItem('todos') || '[]')
@@ -24,6 +25,14 @@ const HomePage: React.FC = () => {
   }, [])
 
   const addTodo = () => {
+   
+    if (!title || !description) {
+      setError('Title and description are required.') 
+      return
+    }
+    
+    setError('') 
+
     if (editIndex !== null) {
       const updatedTodos = todos.map((todo, i) =>
         i === editIndex ? { ...todo, title, description } : todo
@@ -74,6 +83,7 @@ const HomePage: React.FC = () => {
           <Text mb={4}>Logged in as: {JSON.parse(loggedInUser).name}</Text>
         )}
         <Stack spacing={4}>
+          {error && <Text color="red.500">{error}</Text>} {/* Display error message */}
           <Input
             placeholder="Todo title"
             value={title}

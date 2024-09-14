@@ -24,7 +24,7 @@ const RegisterPage: React.FC = () => {
 
     const newUser: User = { name, email, password }
     localStorage.setItem('users', JSON.stringify([...users, newUser]))
-    navigate('/login')
+    navigate('/')
   }
 
   return (
