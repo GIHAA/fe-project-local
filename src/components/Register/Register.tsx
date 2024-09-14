@@ -61,7 +61,7 @@ const RegisterPage: React.FC = () => {
             />
           </FormControl>
           <Button colorScheme="blue" onClick={handleRegister}>Register</Button>
-          <Text textAlign="center">Already have an account? <Link to="/login" style={{ color: 'blue' }}>Login</Link></Text>
+          <Text textAlign="center">Already have an account? <Link to="/" style={{ color: 'blue' }}>Login</Link></Text>
         </Stack>
       </Box>
     </Box>
